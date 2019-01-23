@@ -16,6 +16,49 @@
   <link href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="./assets/css/argon.css?v=1.0.0" rel="stylesheet">
+
+  <link href="/toastr/build/toastr.min.css" rel="stylesheet">
+  <link href="/select2/dist/css/select2.css" rel="stylesheet">
+  <link href="/DataTables/Data/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <style>
+        .pace {
+          -webkit-pointer-events: none;
+          pointer-events: none;
+
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+
+        .pace-inactive {
+          display: none;
+        }
+
+        .pace .pace-progress {
+          background: red;
+          position: fixed;
+          z-index: 2000;
+          top: 0;
+          right: 100%;
+          width: 100%;
+          height: 2px;
+        }
+
+        /*Loading Icon*/
+        .loader {
+          position: fixed;
+          left: 0px;
+          top: 0px;
+          width: 100%;
+          height: 100%;
+          z-index: 9999;
+          background: url('/Gear-1s-95px.gif') 50% 50% no-repeat rgb(249,249,249);
+          opacity: .8;
+        }
+    </style>
+    @yield('stylesheets')
+
 </head>
 
 <body>
@@ -96,37 +139,7 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="./index.html">
-              <i class="ni ni-tv-2 text-primary"></i> Dashboard
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./examples/icons.html">
-              <i class="ni ni-planet text-blue"></i> Icons
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./examples/maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./examples/profile.html">
-              <i class="ni ni-single-02 text-yellow"></i> User profile
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./examples/tables.html">
-              <i class="ni ni-bullet-list-67 text-red"></i> Tables
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./examples/login.html">
-              <i class="ni ni-key-25 text-info"></i> Login
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./examples/register.html">
-              <i class="ni ni-circle-08 text-pink"></i> Register
+              <i class="ni ni-tv-2 text-primary"></i> Partners
             </a>
           </li>
         </ul>
@@ -134,6 +147,15 @@
 
         <!-- Divider -->
         <hr class="my-3">
+        <ul class="navbar-nav mb-md-3">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/users')}}" >
+              <i class="ni ni-single-02 text-yellow"></i> User Records
+            </a>
+          </li>
+      </ul>
+
+
       </div>
     </div>
   </nav>
@@ -187,13 +209,10 @@
       </div>
     </div> <!-- Header -->
 
-    <div class="container-fluid"> <!-- Page content -->
+    <div class="container"> <!-- Page content -->
       <div class="row mt-2">
-        <div class="col-xl-8 mb-5 mb-xl-0">
-          <div class="card shadow">
-              @yield('content')
-          </div>
-        </div>
+            @yield('content')
+            <div class="loader"></div>
       </div>
     </div> <!-- Page content -->
 
@@ -208,6 +227,37 @@
   <script src="./assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="./assets/js/argon.js?v=1.0.0"></script>
+  <script src="/select2/dist/js/select2.js"></script>
+  <script src="/jquery-validation/dist/jquery.validate.min.js"></script>
+  <script src="/DataTables/datatables.min.js"></script>
+  <script src="/DataTables/Data/js/dataTables.bootstrap4.min.js"></script>
+  <script src="/boostrap3-typeahead.min.js"></script>
+  <script src="/toastr/toastr.min.js"></script>
+  <script src="/jQuery-Mask/dist/jquery.mask.js"></script>
+  <script src="/jquery/additional-methods.min.js"></script>
+  <script src="/pace.js"></script>
+  <script src="/dataTables.responsive.min.js"></script>
+  <script src="/js/_script.js"></script>
+
+  @yield('scripts')
+  <script>
+          paceOptions = {
+            // Disable the 'elements' source
+            elements: false,
+
+            // Only show the progress on regular and ajax-y page navigation,
+            // not every request
+            restartOnRequestAfter: false,
+          }
+
+          @if(Session::has('success'))
+              toastr.success('{{ Session::get('success') }}');
+          @endif
+          @if(Session::has('repeat'))
+              toastr.warning('{{ Session::get('repeat') }}');
+          @endif
+  </script>
+
 </body>
 
 </html>

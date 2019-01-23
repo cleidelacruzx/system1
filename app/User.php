@@ -15,8 +15,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table='users';
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'last_name', 'first_name', 'middle_name', 'birthdate', 'gender', 'role_id', 'is_admin', 
+        'username', 'email', 'mobile_number', 'is_active'
     ];
 
     /**
@@ -27,4 +30,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function userRole(){
+      return $this->hasOne('App\UserRole','id','role_id');
+    }
+    
 }
