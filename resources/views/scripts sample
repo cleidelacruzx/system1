@@ -1,0 +1,18 @@
+         // DELETE
+		 // onClick="deletebtn({{ $student-> }})"
+		 //    function deletebtn(id){
+		 //        $.ajax({
+		 //           type: "DELETE",
+		 //           url:  "/students/" + id,
+		 //           data: $('#deleteForm').serialize(),
+		 //           success: function( response ) {
+		 //           		console.log(response);
+			// 			// $('#deleteStudentModal').modal('hide');
+			// 			toastr.error('Student Successfully Updated.', 'Success Alert', {timeOut: 5000});
+		 //           },
+		 //           error: function(error){
+		 // 				console.log(error)
+		 // 			}
+		 //       });
+		 //   	}
+		 // DELETE

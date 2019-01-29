@@ -25,9 +25,9 @@ class CreateUsersTable extends Migration
             $table->char('gender',1);
             $table->char('is_admin',1);
             $table->string('username');
-            $table->string('password', 60);
+            $table->longText('password', 60);
             $table->string('email');
-            $table->string('mobile_number',11);
+            $table->longText('mobile_number',11);
             $table->char('is_active',1);
             $table->rememberToken();
             $table->timestamps();

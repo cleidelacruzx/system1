@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\UserRole;
+use App\SuffixName;
+use App\Http\Requests;
+use Session;
 
 class UserController extends Controller
 {
@@ -12,6 +16,19 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    protected $suf;
+
+    public function __construct(){
+        $this->middleware('auth');
+
+        $suffix = SuffixName::get();
+        $this->suf = array();
+        foreach ($suffix as $suffixes) {
+            $this->suf[$suffixes->suffix_code] = $suffixes->suffix_desc;
+        }
+    }
+
     public function index()
     {
         //
@@ -33,6 +50,9 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('users.create')->with([
+        'suffix' => $this->suf
+        ]);
     }
 
     /**
@@ -44,6 +64,40 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $check_user = User::where('username','LIKE',$request->input('username'))
+                                  ->get();
+
+        $count = count($check_user);
+
+        if($count >= 1){
+
+          Session::flash('repeat','Username Already Exist');
+
+          return redirect()->route('users.index');//,$partner->id);
+
+        }else{
+        $user = new User;
+
+        $user->last_name = $request->input('last_name');
+        $user->first_name = $request->input('first_name');
+        $user->middle_name = $request->input('middle_name');
+        $user->suffix_name = $request->input('suffix_name');
+        $user->birthdate = $request->input('birthdate');
+        $user->gender = $request->input('gender');
+        $user->mobile_number = $request->input('mobile_number');
+        $user->email = $request->input('email');
+        $user->username = $request->input('username');
+        $user->password = bcrypt($request->input('password'));
+        $user->role_id = $request->input('role_id');
+        $user->is_admin = $request->input('is_admin');
+        $user->is_active = $request->input('is_active');
+
+        $user->save();
+
+        Session::flash('success','New User was Successfully Save..!');
+
+        return redirect()->route('users.index');
+        }
     }
 
     /**
@@ -55,6 +109,11 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $user = User::find($id);
+
+        return view('users.show')->with([
+            'users'=>$user,
+        ]);
     }
 
     /**
@@ -66,6 +125,19 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
+
+        $roles = UserRole::all();
+        $role = array();
+        foreach ($roles as $rol) {
+            $role[$rol->id] = $rol->role_name;
+        }
+
+        return view('users.edit')->with([
+            'user' => $user,
+            'suffix' => $this->suf,
+            'role'=>$role
+        ]);
     }
 
     /**
@@ -78,6 +150,27 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = User::find($id);
+
+        $user->last_name = $request->input('last_name');
+        $user->first_name = $request->input('first_name');
+        $user->middle_name = $request->input('middle_name');
+        $user->suffix_name = $request->input('suffix_name');
+        $user->birthdate = $request->input('birthdate');
+        $user->gender = $request->input('gender');
+        $user->mobile_number = $request->input('mobile_number');
+        $user->email = $request->input('email');
+        $user->username = $request->input('username');
+        $user->password = bcrypt($request->input('password'));
+        $user->role_id = $request->input('role_id');
+        $user->is_admin = $request->input('is_admin');
+        $user->is_active = $request->input('is_active');
+
+        $user->save();
+        
+        Session::flash('success','User ' .$user->last_name. ' was Updated Successfully..!');
+
+        return redirect()->route('users.index');
     }
 
     /**

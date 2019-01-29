@@ -21,11 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users','UserController',['except' =>['destroy']]);
 
-Route::resource('users', 'UserController')->names([
-	'index'   => 'users.index',
-    'create'  => 'users.create',
-    'store'   => 'users.store',
-    'show'    => 'users.show',
-    'edit'    => 'users.edit',
-    'update'  => 'users.update',
-])->except([ 'destroy' ]);
+Route::resource('users', 'UserController')->except([ 'destroy' ]);
+Route::resource('students', 'StudentController');
+Route::resource('posts', 'PostController');
