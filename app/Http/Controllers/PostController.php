@@ -18,7 +18,7 @@ class PostController extends Controller
         //
         $posts = Post::all();
 
-        return response()->json($posts);
+        return view('home');
     }
 
     /**
@@ -104,5 +104,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        $student = Post::find($id);
+
+        $student->delete();
     }
 }

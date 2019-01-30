@@ -1,10 +1,7 @@
-       <div class="card shadow rounded">
-        <div class="card-header border-0">
-          <div class="row align-items-center">
-            <div class="col">
-              <h3 class="mb-0 text-primary">{{ isset($user) ? 'EDIT USER' : 'CREATE USER' }}</h3>
-            </div>
-          </div>
+    <br>
+    <div class="card shadow rounded">
+        <div class="card-header border-primary text-white bg-primary">
+            {{ isset($user) ? 'EDIT USER' : 'CREATE USER' }}
         </div>
         <div class="card-body">
             @if(isset($user))

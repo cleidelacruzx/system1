@@ -1,9 +1,14 @@
 
         // loader of every page
-        $(window).on('load', function(){
-            $(".loader").hide();
-        });
+        // $(window).on('load', function(){
+        //     $(".loader").hide();
+        // });
 
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+          }
+        })
 
         $.fn.capitalize = function() {
             $.each(this, function() {

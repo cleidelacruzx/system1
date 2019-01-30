@@ -36,7 +36,7 @@
         }
 
         /*Loading Icon*/
-        .loader {
+/*        .loader {
           position: fixed;
           left: 0px;
           top: 0px;
@@ -45,6 +45,6 @@
           z-index: 9999;
           background: url('/Gear-1s-95px.gif') 50% 50% no-repeat rgb(249,249,249);
           opacity: .8;
-        }
+        }*/
     </style>
     @yield('stylesheets')
