@@ -12,15 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('/auth/login');
+    return view('/auth/splash');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/view', 'ViewController@index')->name('status');
+Route::get('/track', 'showController@show')->name('show');
 
 Route::resource('users','UserController',['except' =>['destroy']]);
 
 Route::resource('users', 'UserController')->except([ 'destroy' ]);
 Route::resource('students', 'StudentController');
 Route::resource('posts', 'PostController');
+Route::resource('client', 'ClientController');
+Route::resource('view', 'ViewController');
+Route::resource('track', 'showController');
+
+

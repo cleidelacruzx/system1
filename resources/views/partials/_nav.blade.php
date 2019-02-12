@@ -68,8 +68,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/students') }}">
-              <i class="ni ni-tv-2 text-primary"></i> Students
+            <a class="nav-link" href="{{ url('/client') }}">
+              <i class="ni ni-tv-2 text-primary"></i> Client
             </a>
           </li>
         </ul>
@@ -80,7 +80,7 @@
         <ul class="navbar-nav mb-md-3">
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/users')}}" >
-              <i class="ni ni-single-02 text-yellow"></i> User Records
+              <i class="ni ni-single-02 text-yellow"></i> Admin Records
             </a>
           </li>
       </ul>

@@ -4,45 +4,51 @@
 <div class="row mt-2" id="example2" style="display:none">
 	<div class="col-xl-12 mb-5 mb-xl-0">
 	<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentmodal">
-		  ADD STUDENT
-		</button>
+	
 
 		<div class="modal fade" id="studentmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+		        <h5 class="modal-title" id="exampleModalCenterTitle">Client</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		      		<form id="addstudent">
-			        	{{ csrf_field() }}
-			        	<div class="row">
-			        		<div class="col-md-4">
-								<label>First Name</label>
-			        			<input type="text" name="first_name" class="form-control" required>
-			        		</div>
-							<div class="col-md-4">
-			        			<label>Middle Name</label>
-			        			<input type="text" name="middle_name" class="form-control" required>
-			        		</div>
-							<div class="col-md-4">
-			        			<label>Last Name</label>
-			        			<input type="text" name="last_name" class="form-control" required>
-			        		</div>
-			        	</div>
-			        	<div class="row">
-			        		<label>Course</label>
-			        		<input type="text" name="course" class="form-control" required>
-			        	</div>
-			        	<div class="row">
-			        		<label>Section</label>
-			        		<input type="text" name="section" class="form-control" required>
-			        	</div>
-		      </div>
+		      		       <form id="addstudent">
+                {{ csrf_field() }}
+                <div class="row">
+                  <div class="col-md-4">
+                <label>First Name</label>
+                    <input type="text" id="Fname" name="Fname" class="form-control" required>
+                  </div>
+              <div class="col-md-4">
+                    <label>Middle Name</label>
+                    <input type="text" id="Mname" name="Mname" class="form-control" required>
+                  </div>
+              <div class="col-md-4">
+                    <label>Last Name</label>
+                    <input type="text" id="Lname" name="Lname" class="form-control" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <label>Facility</label>
+                  <input type="text" id="Facility" name="Facility" class="form-control" required>
+                </div>
+                <div class="row">
+                  <label>Designation</label>
+                  <input type="text" id="Designation" name="Designation" class="form-control" required>
+                </div>
+                 <div class="row">
+                  <label>Contact</label>
+                  <input type="text" id="Contact" name="Contact" class="form-control" required>
+                </div>
+                 <div class="row">
+                  <label>Concern</label>
+                  <textarea type="text" id="Concern" class="form-control" id="Concern" name="Concern"></textarea>
+                </div>
+          </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		        <button type="submit" class="btn btn-primary">Save</button>
@@ -62,8 +68,8 @@
 		      <th>First Name</th>
 		      <th>Middle Name</th>
 		      <th>Last Name</th>
-		      <th>Course</th>
-		      <th>Section</th>
+		      <th>Facility</th>
+		      <th></th>
 		      <th>Action</th>
 		    </tr>
 		  </thead>
@@ -143,11 +149,11 @@
 				        		</div>
 				        	</div>
 				        	<div class="row">
-				        		<label>Course</label>
+				        		<label>Ticket</label>
 				        		<input type="text" name="course" id="course" class="form-control" required>
 				        	</div>
 				        	<div class="row">
-				        		<label>Section</label>
+				        		<label>Priority</label>
 				        		<input type="text" name="section" id="section" class="form-control" required>
 				        	</div>
 			      	</div>
