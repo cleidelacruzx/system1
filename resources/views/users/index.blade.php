@@ -42,11 +42,7 @@
                   <td>{{ $user->email }}</td>
                   <td>
                       <a  href="{{ route('users.edit',$user->id) }}" class="btn btn-link text-warning" data-toggle="tooltip" data-placement="left" title="Edit"><i class="fa fa-pencil fa-2x"></i></a>
-                      <a  href="{{ route('users.show',$user->id) }}" class="btn btn-link text-info" data-toggle="tooltip" data-placement="left" title="Show"><i class="fa fa-clipboard fa-2x"></i></a>
-                      <a data-toggle="modal" data-target="#activeInactive{{ $user->id }}"  data-toggle="tooltip" data-placement="left"
-                      class="btn btn-link text-{{ $user->is_active == 'Y' ? 'primary' : 'danger' }}" 
-                      title="{{ $user->is_active == 'Y' ? 'Deactivate' : 'Activate' }}">
-                      <i class="fa {{ $user->is_active == 'Y' ? 'fa-eye fa-2x' : 'fa-eye-slash fa-2x' }}"></i>
+                    
                     </a>
                   </td>
                 </tr>

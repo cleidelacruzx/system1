@@ -20,9 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('first_name');
             $table->string('middle_name');
-            $table->string('suffix_name');
-            $table->date('birthdate');
-            $table->char('gender',1);
+            $table->string('head_facility');
             $table->char('is_admin',1);
             $table->string('username');
             $table->longText('password', 60);

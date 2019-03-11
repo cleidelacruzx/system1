@@ -18,7 +18,11 @@ class PostController extends Controller
         //
         $posts = Post::all();
 
-        return view('home');
+        return view('login')->with([
+            'home' => $post 
+        ]);
+
+        
     }
 
     /**
@@ -41,13 +45,15 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        $post = new Post;
+        $posts = new Posts;
 
-        $post->name = $request->input('name');
-        $post->author = $request->input('author');
-        $post->detail = $request->input('detail');
+        $posts->User = $request->input('User');
+        $posts->Ticket = $request->input('Ticket');
+        $posts->Lname = $request->input('Lname');
+        $posts->Status = $request->input('Status');
 
-        $post->save();
+        $posts->save();
+         return $posts;
     }
 
     /**
@@ -88,9 +94,11 @@ class PostController extends Controller
                 //
         $post = Post::find($id);
 
-        $post->name = $request->input('name');
-        $post->author = $request->input('author');
-        $post->detail = $request->input('detail');
+        $post->User = $request->input('User');
+        $post->Ticket = $request->input('Ticket');
+        $post->Lname = $request->input('Lname');
+        $post->Status = $request->input('Status');
+
 
         $post->save();
     }

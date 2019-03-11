@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-class showController extends Controller
+use App\Admin;
+
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,14 @@ class showController extends Controller
      */
     public function index()
     {
-        //
+
+          $data1 = Admin::all();
+
+        return view('admin.index')->with([
+            'admin' => $data1 
+        ]);
+
+      
     }
 
     /**
@@ -34,7 +42,18 @@ class showController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          $admin = new Admin ();
+
+      $admin->Admin = $request->input('User');
+      $admin->UserFirstname = $request->input('First_name');
+      $admin->UserMiddlename = $request->input('Middle_name');
+      $admin->UserLastname = $request->input('Last_name');
+      $admin->Ticket = $request->input('Ticket');
+      $admin->Status = $request->input('Status');
+      
+
+      $admin->save();
+      return $admin;
     }
 
     /**
@@ -45,15 +64,7 @@ class showController extends Controller
      */
     public function show($id)
     {
-
-
-
-
- DB::table('ticketnumber')->select([$view->ticketnumber = $result->get('#ticketnumber')]);
-
-  
-
-        return view('view.show');
+        //
     }
 
     /**

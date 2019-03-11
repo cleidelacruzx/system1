@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 
@@ -64,6 +65,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
           </div>
           <!-- Navbar items -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" >
+                <i class="ni ni-planet"></i>
+                <span class="nav-link-inner--text">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="{{ route('login') }}">
+                <i class="ni ni-key-25"></i>
+                <span class="nav-link-inner--text">Login</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+          <!-- Navbar items -->
      
               </a>
             </li>
@@ -96,7 +115,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="card-header bg-transparent pb-5">
                  <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link " href="{{url('/home')}}">Client Register</a>
   </li>
   <li class="nav-item">
     <a  class="nav-link active" href="#">View Ticket Status</a>
@@ -107,7 +125,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  
               <form  id="addstudent">
              
-                 <div class="row">
+                 <div class="col-6">
                   <label>Type your ticket here</label>
                   <textarea type="text" id="ticketnumber" name="ticketnumber" class="form-control"></textarea>
                 </div><br>
@@ -118,9 +136,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </div>
     </div>
-
-
-  
     <br>
     <br>
     
@@ -131,7 +146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <button onclick="reload()" type="button" class="close" data-dismiss="alert" aria-label="Close">
  
               
-  <h4 class="alert-heading">Well done!</h4>
+  
               
   <div id="status"></div>
   </button>
@@ -156,8 +171,11 @@ $(document).ready(function(){
     $("#status"). html('Please Expect a call on Wireless Access for Health team within this day')
     $("#alertcontainer"). show();
   });
-
 });
+function reload(){
+  $('#example2').  show();
+  location.reload();
+}
 
 
 

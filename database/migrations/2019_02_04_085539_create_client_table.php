@@ -27,7 +27,7 @@ class CreateClientTable extends Migration
             $table->integer('ticketnumber');
             $table->timestamps();
         });
-    }
+           }
 
     /**
      * Reverse the migrations.

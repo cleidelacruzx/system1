@@ -15,7 +15,9 @@ class ClientController extends Controller
     public function index()
     {
       
-        $data1 = Client::all();
+        $data1 = Client::select()
+        ->join('categories', 'client.Categories','=','categories.id')
+        ->get();
 
         return view('client.index')->with([
             'clients' => $data1 

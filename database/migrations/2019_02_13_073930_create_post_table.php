@@ -4,20 +4,22 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class modifytable extends Migration
+
+class CreatePostTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-
     public function up()
     {
-        Schema::table('client', function (Blueprint $table) {
-
-            $table->varchar('Contact','15')->change();
-    
+        Schema::create('posts', function (Blueprint $table) {
+            $table->string('User');
+            $table->string('Ticket');
+            $table->string('Lname');
+            $table->string('Status');
+            $table->timestamps();
         });
     }
 
@@ -28,9 +30,6 @@ class modifytable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client');
+        Schema::dropIfExists('posts');
     }
 }
-
-
-

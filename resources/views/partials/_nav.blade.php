@@ -63,8 +63,6 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/home') }}">
-              <i class="ni ni-tv-2 text-primary"></i> Home
             </a>
           </li>
           <li class="nav-item">
@@ -73,6 +71,12 @@
             </a>
           </li>
         </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/admin') }}">
+              <i class="ni ni-tv-2 text-primary"></i> Admin
+            </a>
+          </li>
         <!-- Navigation -->
 
         <!-- Divider -->

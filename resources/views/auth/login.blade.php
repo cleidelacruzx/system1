@@ -24,7 +24,7 @@
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
         <a class="navbar-brand" href="../index.html">
-          <img src="../assets/img/brand/white.png" />
+    
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -82,9 +82,10 @@
         <div class="col-lg-5 col-md-7">
           <div class="card bg-secondary shadow border-0">
 <!--             <div class="card-header bg-transparent pb-5"></div> -->
+ 
+    <img src="img/headerpic.png" class="logo">
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <small>Sign in with credentials</small>
               </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -118,7 +119,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    {{ __('login') }}
                                 </button>
                             </div>
                         </div>

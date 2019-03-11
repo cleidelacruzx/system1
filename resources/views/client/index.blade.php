@@ -103,10 +103,12 @@
 		      <td>{{ $client->Facility }}</td>
 		      <td>{{ $client->Designation }}</td>
 		       <td>{{$client->Contact }}</td>
-		      <td>{{$client->Categories }}</td>
+		      <td>{{$client->categories }}</td>
 		      <td>{{ $client->Concern }}</td>
 		      <td>{{ $client->ticketnumber }}</td>
+		      <td><a button type="button"  class="btn btn-danger" a href = "delete/{{ $client->id }}">Delete</button></a></td>	
 		  	<td>
+
 		  		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open</button>
 		  		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -120,19 +122,21 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
+          	
             <label for="recipient-name" class="col-form-label">User ID:</label>
-            <input type="text" class="form-control" placeholder="Input Your ID" id="recipient-name">
+            <input type="text" id="User" value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}" class="form-control" placeholder="Input Your ID" id="recipient-name">
           </div>
           <div class="form-group">
             <label for="message-text" >Status</label><br>
-            Please Expect a call on Wireless Access for Health team within this day          
+              
         </div>
-        <select>
+        <select id="Status">
         	<option>Process Status</option>
         	<option>Success/Done</option>
         	<option>On Hold</option>
         	<option>Rejected/Failed</option>
-        </select>
+        </select><br>
+                        <button type="button" id="save" class="btn btn-primary" >ENTER</button>
         </form>
       </div>
 		  	</td>

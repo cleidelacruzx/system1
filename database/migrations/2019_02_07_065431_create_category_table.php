@@ -17,18 +17,18 @@ class CreateCategoryTable extends Migration
             $table->engine = 'InnoDB';
             
             $table->increments('id');
-            $table->string('name');
+         
             $table->string('categories');
         });
 
         DB::table('categories')
         ->insert([  
-            ['name' => 'Technical',  'Categories' => 'technical'],
-            ['name' => 'Health Programs',  'Categories' => 'health programs'],
-            ['name' => 'Finance/Legal',  'Categories' => 'finance/legal'],
-            ['name' => 'E-Claims',  'Categories' => 'e-claims'],
-            ['name' => 'PCB',  'Categories' => 'pcb'],
-            ['name' => 'Suggestion',  'Categories' => 'suggestion'],
+            ['id' => '1',  'Categories' => 'technical'],
+            ['id' => '2',  'Categories' => 'health programs'],
+            ['id' => '3',  'Categories' => 'finance/legal'],
+            ['id' => '4',  'Categories' => 'e-claims'],
+            ['id' => '5',  'Categories' => 'pcb'],
+            ['id' => '6',  'Categories' => 'suggestion'],
                ]);
         }
 

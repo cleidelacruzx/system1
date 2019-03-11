@@ -14,14 +14,8 @@
   <!--  Social tags      -->
   <meta name="keywords" content="dashboard, bootstrap 4 dashboard, bootstrap 4 design, bootstrap 4 system, bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, argon, argon ui kit, creative tim, html kit, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap ui kit, responsive ui kit, argon dashboard">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
- 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NKDMSK6');</script>
-  <!-- End Google Tag Manager -->
+ <!-- End Google Tag Manager -->
   <!-- Favicon -->
   <link href="../assets/img/brand/favicon.png" rel="icon" type="image/png">
   <!-- Fonts -->
@@ -67,13 +61,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link nav-link-icon" >
-                <i class="ni ni-planet"></i>
+               
                 <span class="nav-link-inner--text">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="{{ route('login') }}">
-                <i class="ni ni-key-25"></i>
+            <li class="nav-item" id="login">
+              <a class="nav-link nav-link-icon" href="{{ route('login') }}" >
                 <span class="nav-link-inner--text">Login</span>
               </a>
             </li>
@@ -99,193 +92,338 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 
     <!-- Page content -->
-    <div class="container mt--8 pb-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-10 col-md-12">
-          <div class="card bg-secondary shadow border-0" id="example3">
-            <div class="card-header bg-transparent pb-5">
-                 <ul class="nav nav-tabs">
-                  
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Client Register</a>
-  </li>
-  <li class="nav-item">
-    <a  class="nav-link" href="{{route('view.index')}}">View Ticket Status</a>
-  </li>
-</ul>
-<div class="row mt-2" id="example2">
-  <div class="col-xl-12 mb-5 mb-xl-0">
- 
-              <form  id="addstudent">
-                {{ csrf_field() }}
-                <div class="row">
-                  <div class="col-md-4">
-                <label>First Name</label>
-                    <input type="text" id="first_name" name="first_name" class="form-control" required>
-                     <div class="valid-feedback">
-                      looks good
-                    </div>
-                     <div class="invalid-feedback">
-                      Please input your first name
-                    </div>
-                  </div>
+<!DOCTYPE html>
+<html>
+<title>Ticketing System</title>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
 
-              <div class="col-md-4">
-                    <label>Middle Name</label>
-                    <input type="text" id="middle_name" name="middle_name" class="form-control" required>
-                    <div class="valid-feedback">
-                      looks good
-                    </div>
-                    <div class="invalid-feedback">
-                      Please input your first name
-                    </div>
-                  </div>
-              <div class="col-md-4">
-                    <label>Last Name</label>
-                    <input type="text" id="last_name" name="last_name" class="form-control" required>
-                    <div class="valid-feedback">
-                      looks good
-                    </div>
-                    <div class="invalid-feedback">
-                      Please input your first name
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <label>Facility</label>
-                  <input type="text" id="facility" name="facility" class="form-control" required>
-                  <div class="valid-feedback">
-                      looks good
-                    </div>
-                </div>
-                <div class="row">
-                  <label>Designation</label>
-                  <input type="text" id="designation" name="designation" class="form-control" required>
-                  <div class="valid-feedback">
-                      looks good
-                    </div>
-                    <div class="invalid-feedback">
-                      Please input your first name
-                    </div>
-                </div>
-                 <div class="row">
-                  <label>Contact</label>
-                  <input type="text" id="contact" name="contact" class="form-control" required>
-                  <div class="valid-feedback">
-                      looks good
-                    </div>
-                    <div class="invalid-feedback">
-                      Please input your first name
-                    </div>
-                   
-                    
-                     <div class="col-md-4">
-                        {{ Form::label('Categories','Categories') }}
-                        @if(isset($client))
-                        {{ Form::select('categories', $categories,'NOTAP', ['class' => 'form-control','id' => 'categories','name' => 'categories']) }}
-                        @else
-                        <select type="text" id="categories" name="categories" class="form-control">
-                            <option value="" disabled selected>Choose your option</option>
-                              @foreach(App\categories::get() as $categories)
-                                  <option value="{{ $categories['id'] }}">{{ $categories['categories'] }}</option>
-                              @endforeach
-                        </select>
-                        @endif
-                   </div>
-                </div>
-                 <div class="row">
-                  <label>Concern</label>
-                  <textarea type="text" id="concern" name="concern" class="form-control"></textarea>
-                </div>
-                <button type="button" id="save"   onclick="saveData()"   class="btn btn-primary">SAVE</button>
-          </form>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <br>
-    <br>
-    
-</div>       
-
-  <div id="alertcontainer" class="alert alert-success" role="alert">
-<div class="pull-right"><span aria-hidden="true" class="pull-right">&times;</span>
-</div>
-    <button onclick="reload()" type="button" class="close" data-dismiss="alert" aria-label="Close">
-              
-  <h4 class="alert-heading">Well done!</h4>
-              
-  <div id="ticketnumber"></div>
-  </button>
-</div>
-</div>
-
-
-  <!-- Core -->
-  <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Argon JS -->
-  <script src="../assets/js/argon.min.js?v=1.0.0"></script>
-  <script src="/toastr/toastr.min.js"></script>
-
-
-  <script>    
-
-    $(document). ready(function(){
-    $("#alertcontainer"). hide();
-
-    });
-      $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      });
-
-      //store
-      function saveData(){
-
-          var first_name = $('#first_name').val();
-          var middle_name = $('#middle_name').val();
-          var last_name = $('#last_name').val();
-          var facility = $('#facility').val();
-          var designation = $('#designation').val();
-          var contact = $('#contact').val();
-          var categories = $('#categories').val();
-          var concern = $('#concern').val();
-          var ticket = $('#ticketnumber').val();
-
-          $.ajax({
-            type: "POST",
-            url : "{{ route('client.store') }}",
-            data: $('#addstudent').serialize(),
-            success:function(e){
-              toastr.success('Post Created Successfully.', 'Success Alert', {timeOut: 5000});
-            
-
-              $("#example3"). hide(500);
-              $("#ticketnumber"). html('Your ticket number is ' + e.ticketnumber);
-              $("#alertcontainer"). show();
-              
-
-
-    
-              },
-              error: function(error){
-              console.log(error)
-              }
-          })
-          
-      }
-function reload(){
-  
+body { 
+    background: white; 
+    overflow-x:hidden;
 }
 
-    
-      </script>
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #00ace6;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
 
+.mcd-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /*height: 100px;*/
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+    
+/*sidebar background*/
+.mcd-menu li a {
+  display: block;
+  text-decoration: none;
+  padding: 12px 20px;
+  color: white;
+  text-align: left;
+  height: 36px;
+  position: relative;
+  border-bottom: 1px solid #EEE;
+}
+
+.mcd-menu li a strong {
+    display: block;
+    text-transform: uppercase;
+}
+.mcd-menu li a small {
+    display: block;
+    font-size: 10px;
+}
+
+.mcd-menu li:hover > a {
+    color:black;
+}
+
+div.loginbox{
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    
+    transform: translate(-50%,-50%);
+    width: 580px;
+    padding: 39px;
+    background-color:white;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5)
+    border-radius:50px;
+    border: 6px solid #00ace6;
+
+}
+.logo{
+    width: 580px;
+    height: 115px;
+    bordr-radius:50%;
+    overflow: hidden;
+    position:absolute;
+    top: calc(-130px/2);
+    left:calc(8% - 52px);
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.col-25 {
+  float: center;
+  width: 40%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: center;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.collapsible {
+  background-color:  #e6e6e6;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border: 2px solid #ddd;
+}
+
+.active, .collapsible:hover {
+  background-color: #cccccc;
+}
+
+.content {
+  padding: 0 8px;
+  display: none;
+  overflow: hidden;
+  background-color: #cccccc;
+  width: 95%;
+}
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  position: relative;
+  float: right;
+  
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+
+</style>
+<body>
+
+<form>
+<script type="text/javascript">
+    function showfield(name){
+    if(name=='op1')document.getElementById('div1').innerHTML='';
+    else document.getElementById('div1').innerHTML='';
+    if(name=='sub1')document.getElementById('div').innerHTML='';
+    else document.getElementById('div2').innerHTML='';
+    
+    }
+</script>
+
+    <tr>
+        <td>
+            <div id="mainlevel">
+            <center>
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+            <tbody><tr>
+                <td>
+                    <center>
+                    <div id="mainarea">
+                    <center>
+                    <table width="100%" border="0" cellpadding="5" cellspacing="5">
+                    <tbody><tr>
+                        <td>
+                            <div id="maindivarea">
+                            <center>
+                                <div id="statusbox">
+                                    <font color="red" face="arial" size="+1">
+                                    <b>
+                                        
+                                    </b>
+                                </font>
+                                </div>
+                                <br>
+                                
+                                <div class="loginbox">
+
+                                <img src="img/headerpic.png" class="logo">
+                                <br>
+                                <h2 style="color:black">FAQs</h2>
+                                              <form action="/action_page.php">
+                                              
+                                              <div class="row">
+                                                <div class="col-25">
+                                                  
+                                                </div>
+                                                
+                                                <div class="col-75">
+
+                                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<select id="category">
+    <option value="">Select Category</option>
+
+</select>
+
+<select id="subcategory">
+    <option value="">Select Sub Category</option>
+</select>
+
+<script type="text/javascript">
+var categories = [
+    {
+       value: '1',
+       name: 'Category 1',
+       subCategories: [{
+           value: '1.1',
+           name: 'others'
+       }, {
+           value: '1.2',
+           name: 'other'
+       }]
+    }, {
+       value: '2',
+       name: 'Category 2',
+       subCategories: [{
+           value: '2.1',
+           name: 'another'
+       }, {
+           value: '2.2',
+           name: 'another'
+       }]
+    }
+];
+
+var $categorySelect =  $("#category");
+var $subCategorySelect =  $("#subcategory");
+
+// populate categories with options
+categories.forEach(function(category) {
+    var $option = $('<option/>').attr('value', category.value).html(category.name);
+    $categorySelect.append($option);
+});
+
+$categorySelect.on('change', function() {
+    // clean subcategory select from older options
+    $subCategorySelect.empty();
+  
+    // find selected category
+    var selectedCategoryValue = $categorySelect.val();
+    var category = categories.find(function(category) {
+        return category.value == selectedCategoryValue;
+    });
+  
+    // if category found - populate subcategory select
+    if (category) {
+        category.subCategories.forEach(function(subcategory) {
+            
+            // you can extract this line into separate function
+            var $option = $('<option/>').attr('value', subcategory.value).html(subcategory.name);
+            
+            $subCategorySelect.append($option);
+        });
+    }
+    
+})
+</script>
+<center><p></p></center>
+<button class="collapsible">Problem 1 <i class="down"></i></button>
+<div class="content">
+  <p>Solution.</p>
+</div>
+<button class="collapsible">Problem 2<i class="down"></i></button>
+<div class="content">
+  <p>Solution.</p>
+</div>
+<button class="collapsible">Problem 3<i class="down"></i></button>
+<div class="content">
+  <p>Solution.</p>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col-25">
+                                                  <div id="div1"></div>
+                                                </div>
+                                                <div class="col-25">
+                                                  <div id="div2"></div>
+                                                </div>
+                                              </form>
+                                            </div>
+                            </center>
+                        </td>
+                    </tr>
+                    </tbody></table>
+                    </center>
+                    </div>
+                    </div>
+                    </center>
+                </td>
+            </tr>
+            </tbody></table>
+            </center>
+            </div>
+        </td>
+    </tr>
+</form>
+</body>
+</html>                  
 
 </body>
 
