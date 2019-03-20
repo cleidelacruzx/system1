@@ -16,6 +16,7 @@
   <link href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="../assets/css/argon.css?v=1.0.0" rel="stylesheet">
+  
 </head>
 
 <body class="bg-default">
@@ -92,7 +93,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <label for="email">{{ __('E-Mail Address') }}</label>
+                                <i class="fa fa-envelope icon"></i></i><label for="email">{{ __('E-Mail Address') }}</label>
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
@@ -105,7 +106,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <label for="password">{{ __('Password') }}</label>
+                                <i class="fa fa-key icon"></i><label for="password">{{ __('Password') }}</label>
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -124,6 +125,11 @@
                             </div>
                         </div>
                     </form>
+                    <center>
+                    <hr class="signin">
+                    <p>Create an account?  <a href="{{ route('register') }}">Register</a></p>
+                    </form>
+                  </center>
             </div>
           </div>
         </div>

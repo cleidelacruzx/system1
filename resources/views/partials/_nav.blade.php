@@ -65,18 +65,18 @@
           <li class="nav-item">
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/client') }}">
-              <i class="ni ni-tv-2 text-primary"></i> Client
-            </a>
-          </li>
-        </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/admin') }}">
               <i class="ni ni-tv-2 text-primary"></i> Admin
             </a>
           </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{ url('/client') }}">
+              <i class="ni ni-tv-2 text-primary"></i> Client
+            </a>
+          </li>
+        </ul>
         <!-- Navigation -->
 
         <!-- Divider -->

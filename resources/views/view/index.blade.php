@@ -1,4 +1,4 @@
-
+xmlns
 
 <!DOCTYPE html>
 <html>
@@ -143,8 +143,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div id="alertcontainer" class="alert alert-success" role="alert">
     <div class="pull-right"><span aria-hidden="true" class="pull-right">&times;</span>
   </div>
-    <button onclick="reload()" type="button" class="close" data-dismiss="alert" aria-label="Close">
- 
+   
               
   
               

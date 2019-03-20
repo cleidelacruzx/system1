@@ -157,7 +157,7 @@ div.loginbox{
     left: 50%;
     
     transform: translate(-50%,-50%);
-    width: 580px;
+    width: 750px;
     padding: 39px;
     background-color:white;
     box-shadow: 0 15px 25px rgba(0,0,0,.5)
@@ -166,13 +166,13 @@ div.loginbox{
 
 }
 .logo{
-    width: 580px;
+    width: 750px;
     height: 115px;
     bordr-radius:50%;
     overflow: hidden;
     position:absolute;
     top: calc(-130px/2);
-    left:calc(8% - 52px);
+    left:calc(8% - 65px);
 }
 
 input[type=text], select, textarea {
@@ -207,8 +207,8 @@ label {
   clear: both;
 }
 .collapsible {
-  background-color:  #e6e6e6;
-  color: black;
+  background-color: #777;
+  color: white;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -216,49 +216,34 @@ label {
   text-align: left;
   outline: none;
   font-size: 15px;
-  border: 2px solid #ddd;
 }
 
 .active, .collapsible:hover {
-  background-color: #cccccc;
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
 }
 
 .content {
-  padding: 0 8px;
-  display: none;
+  padding: 0 18px;
+  max-height: 0;
   overflow: hidden;
-  background-color: #cccccc;
-  width: 95%;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
 }
-
-i {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  position: relative;
-  float: right;
-  
-}
-.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
-
 </style>
 <body>
 
-<form>
-<script type="text/javascript">
-    function showfield(name){
-    if(name=='op1')document.getElementById('div1').innerHTML='';
-    else document.getElementById('div1').innerHTML='';
-    if(name=='sub1')document.getElementById('div').innerHTML='';
-    else document.getElementById('div2').innerHTML='';
-    
-    }
-</script>
 
     <tr>
         <td>
@@ -289,94 +274,58 @@ i {
                                 <img src="img/headerpic.png" class="logo">
                                 <br>
                                 <h2 style="color:black">FAQs</h2>
-                                              <form action="/action_page.php">
-                                              
-                                              <div class="row">
-                                                <div class="col-25">
-                                                  
-                                                </div>
-                                                
-                                                <div class="col-75">
-
-                                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<select id="category">
-    <option value="">Select Category</option>
-
-</select>
-
-<select id="subcategory">
-    <option value="">Select Sub Category</option>
-</select>
-
-<script type="text/javascript">
-var categories = [
-    {
-       value: '1',
-       name: 'Category 1',
-       subCategories: [{
-           value: '1.1',
-           name: 'others'
-       }, {
-           value: '1.2',
-           name: 'other'
-       }]
-    }, {
-       value: '2',
-       name: 'Category 2',
-       subCategories: [{
-           value: '2.1',
-           name: 'another'
-       }, {
-           value: '2.2',
-           name: 'another'
-       }]
-    }
-];
-
-var $categorySelect =  $("#category");
-var $subCategorySelect =  $("#subcategory");
-
-// populate categories with options
-categories.forEach(function(category) {
-    var $option = $('<option/>').attr('value', category.value).html(category.name);
-    $categorySelect.append($option);
-});
-
-$categorySelect.on('change', function() {
-    // clean subcategory select from older options
-    $subCategorySelect.empty();
-  
-    // find selected category
-    var selectedCategoryValue = $categorySelect.val();
-    var category = categories.find(function(category) {
-        return category.value == selectedCategoryValue;
-    });
-  
-    // if category found - populate subcategory select
-    if (category) {
-        category.subCategories.forEach(function(subcategory) {
-            
-            // you can extract this line into separate function
-            var $option = $('<option/>').attr('value', subcategory.value).html(subcategory.name);
-            
-            $subCategorySelect.append($option);
-        });
-    }
-    
-})
-</script>
-<center><p></p></center>
-<button class="collapsible">Problem 1 <i class="down"></i></button>
+<button class="collapsible">E-Claims</button>
 <div class="content">
-  <p>Solution.</p>
+<button class="collapsible">Open Section 1</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
-<button class="collapsible">Problem 2<i class="down"></i></button>
+<button class="collapsible">Open Section 2</button>
 <div class="content">
-  <p>Solution.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
-<button class="collapsible">Problem 3<i class="down"></i></button>
+<button class="collapsible">Open Section 3</button>
 <div class="content">
-  <p>Solution.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+</div>
+
+<button class="collapsible">PCB</button>
+<div class="content">
+<button class="collapsible">Open Section 1</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 2</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 3</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+</div>
+
+<button class="collapsible">Technical</button>
+<div class="content">
+<button class="collapsible">Open Section 1</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 2</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 3</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+</div>
+<button class="collapsible">Other Concern</button>
+<div class="content">
+  <form>
+<a type="button" href="{{route('register')}}">Click this to make a Concern</a>
+</form>
 </div>
 
 <script>
@@ -387,41 +336,22 @@ for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
     } else {
-      content.style.display = "block";
-    }
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
   });
 }
 </script>
-                                                </div>
-                                              </div>
-                                              <div class="row">
-                                                <div class="col-25">
-                                                  <div id="div1"></div>
-                                                </div>
-                                                <div class="col-25">
-                                                  <div id="div2"></div>
-                                                </div>
-                                              </form>
-                                            </div>
-                            </center>
-                        </td>
-                    </tr>
-                    </tbody></table>
-                    </center>
-                    </div>
-                    </div>
-                    </center>
-                </td>
-            </tr>
-            </tbody></table>
-            </center>
-            </div>
-        </td>
-    </tr>
-</form>
+</div>
+</center>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+
 </body>
 </html>                  
 
