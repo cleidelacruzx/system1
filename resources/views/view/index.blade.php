@@ -1,4 +1,3 @@
-xmlns
 
 <!DOCTYPE html>
 <html>
@@ -15,14 +14,8 @@ xmlns
   <!--  Social tags      -->
   <meta name="keywords" content="dashboard, bootstrap 4 dashboard, bootstrap 4 design, bootstrap 4 system, bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, argon, argon ui kit, creative tim, html kit, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap ui kit, responsive ui kit, argon dashboard">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
- 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NKDMSK6');</script>
-  <!-- End Google Tag Manager -->
+ <!-- End Google Tag Manager -->
   <!-- Favicon -->
   <link href="../assets/img/brand/favicon.png" rel="icon" type="image/png">
   <!-- Fonts -->
@@ -68,22 +61,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link nav-link-icon" >
-                <i class="ni ni-planet"></i>
+               
                 <span class="nav-link-inner--text">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="{{ route('login') }}">
-                <i class="ni ni-key-25"></i>
+            <li class="nav-item" id="login">
+              <a class="nav-link nav-link-icon" href="{{ route('login') }}" >
                 <span class="nav-link-inner--text">Login</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-          <!-- Navbar items -->
-     
               </a>
             </li>
           </ul>
@@ -108,93 +92,274 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 
     <!-- Page content -->
-    <div class="container mt--8 pb-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-10 col-md-12">
-          <div class="card bg-secondary shadow border-0" id="example3">
-            <div class="card-header bg-transparent pb-5">
-                 <ul class="nav nav-tabs">
-  <li class="nav-item">
-  </li>
-  <li class="nav-item">
-    <a  class="nav-link active" href="#">View Ticket Status</a>
-  </li>
-</ul>
-<div class="row mt-2" id="example2">
-  <div class="col-xl-12 mb-5 mb-xl-0">
- 
-              <form  id="addstudent">
-             
-                 <div class="col-6">
-                  <label>Type your ticket here</label>
-                  <textarea type="text" id="ticketnumber" name="ticketnumber" class="form-control"></textarea>
-                </div><br>
-                <button type="button" id="save" class="btn btn-primary" >ENTER</button>
-          </form>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <br>
-    <br>
-    
-</div>       
-<div id="alertcontainer" class="alert alert-success" role="alert">
-    <div class="pull-right"><span aria-hidden="true" class="pull-right">&times;</span>
-  </div>
-   
-              
-  
-              
-  <div id="status"></div>
-  </button>
-</div>
-</div>
+<!DOCTYPE html>
+<html>
+<title>Ticketing System</title>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
 
 
-  <!-- Core -->
-  <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Argon JS -->
-  <script src="../assets/js/argon.min.js?v=1.0.0"></script>
-  <script src="/toastr/toastr.min.js"></script>
-
-<script>
-
-$(document).ready(function(){
-  $("#alertcontainer"). hide();
-
-  $('#save').on('click',function(e){
-    $("#example3"). hide();
-    $("#status"). html('Please Expect a call on Wireless Access for Health team within this day')
-    $("#alertcontainer"). show();
-  });
-});
-function reload(){
-  $('#example2').  show();
-  location.reload();
+input[type=date] {
+    display: inline-block;  
+    width: 52%;
+  margin: 8px 0;
+  padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+  box-sizing: border-box
+    font-size: 15px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  border-radius:5px;
+}
+input[type=text] {
+    display: inline-block;  
+    width: 52%;
+  margin: 8px 0;
+  padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+  box-sizing: border-box
+    font-size: 15px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  border-radius:5px;
+}
+input[type=password] {
+    display: inline-block;  
+    width: 50%;
+  margin: 8px 0;
+  padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+  box-sizing: border-box
+    font-size: 15px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  border-radius:5px;
+}
+input[type=submit] {
+    width: 30%;
+    background-color: #00ace6;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #0E4D92;
 }
 
+input[type=date]:focus {
+  width: 60%;
+}
+input[type=text]:focus {
+  width: 60%;
+}
+input[type= password]:focus {
+  width: 60%;
+}
+
+div.loginbox{
+  position: absolute;
+  top: 115%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 490px;
+  padding: 40px;
+  background-color:white;
+  box-shadow: 0 15px 25px rgba(0,0,0,.5)
+  border-radius:50px;
+  border: 5px solid #00ace6;
+}
+.logo{
+  width: 490px;
+  height: 100px;
+  bordr-radius:50%;
+  overflow: hidden;
+  position:absolute;
+  top: calc(-130px/2);
+  left:calc(10% - 53px);
+}
+
+.reg
+{
+  position: absolute;
+  text-align: left;
+
+}
+
+.icon{
+  padding: 12px;
+  background: white;
+  color: #00ace6;
+  min-width: 50px;
+  text-align: center;
+}
+.ticketnumber {
+  border-collapse: collapse;
+  border: 2px solid #00ace6;;
+}
+.ticket, .number {
+  padding: 15px;
+}
+.ticket {
+  background-color: #00ace6;
+}
+.number:hover {
+  background-color: #0E4D92;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<body>
 
 
-//   $(document). ready(function(){
-//     $("#alertcontainer"). hide();
-// }
-//   function getData(){
-//               $("#example3"). hide(500);
-//               $("#ticketnumber"). html('Please Expect a call on Wireless Access for Health team within this day' );
-//               $("#alertcontainer"). show();
-//             }
+    <tr>
+        <td>
+            <div id="mainlevel">
+            <center>
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+            <tbody><tr>
+                <td>
+                    <center>
+                    <div id="mainarea">
+                    <center>
+                    <table width="100%" border="0" cellpadding="5" cellspacing="5">
+                    <tbody><tr>
+                        <td>
+                            <div id="maindivarea">
+                            <center>
+                                <div id="statusbox">
+                                    <font color="red" face="arial" size="+1">
+                                    <b>
+                                        
+                                    </b>
+                                </font>
+                                </div>
+                                <br>
+                                
+                                <div class="loginbox">
+
+                                <img src="img/headerpic.png" class="logo">
+                                <br>
+                        
+                        <center><h2 style="color:black">REPORT</h2></center>
+                    <form action="{{ route('admin.store') }} method="POST"> 
+                    @csrf                    
+                    <i class="fa fa-calendar icon"></i><input type="date" id="theDate" name="theDate"><br>
+                      <script>
+                        var date = new Date();
+                        var day = date.getDate();
+                        var month = date.getMonth() + 1;
+                        var year = date.getFullYear();
+
+                        if (month < 10) month = "0" + month;
+                        if (day < 10) day = "0" + day;
+
+                        var today = year + "-" + month + "-" + day;
 
 
-   
-//             success:function(e){
-//               toastr.success('Post Created Successfully.', 'Success Alert', {timeOut: 5000});
-            
+                        document.getElementById('theDate').value = today;
+                      </script>
+                    <i class="fa fa-puzzle-piece icon"></i><input type="text" id="eproblem" name="eproblem" placeholder="Enter Problem" required=""><br>
+                    <i class="fa fa-puzzle-piece icon"></i><input type="text" id="bproblem" name=bproblem" placeholder="Before the problem" required=""><br>
+                    
+                    <div>
+                        <div class="col-80">
+                          <select id="receiver" name="receiver">
+                            <option value="" selected disabled hidden>Choose a receiver</option>
+                          <option value="australia">Francis Joseph Gamboa</option>
+                          </select>
+                        </div>
+                        </div>
+                        <br>
+                    <i class="fa fa-envelope icon"></i><input type="text" id="email" name="email" placeholder="Email Address" required=""><br>
+                    <table class="ticketnumber">
+                      <tr>
+                        <th id="ticket" class="ticket">Ticket Number:</th>
+                        <th id="demo" class="number"></th>
+                      </tr>
+                    <script>
+                      document.getElementById("demo").innerHTML =
+                      Math.floor(Math.random() * 10000) + 9000;
+                      document.getElementById('demo').innerHTML = getRndInteger(10111,99652)
+                    </script>
+                    </table>
+                    <br>
+                    <!-- <input name="accept" type="submit" onclick="saveData()" value="Submit" href="#"> -->
+                        <input name="accept" type="submit" value="Submit">
+@csrf
+                    </form>
 
-</script>
-  
+
+    <script src="../assets/js/argon.min.js?v=1.0.0"></script>
+  <script src="/toastr/toastr.min.js"></script>
+
+                    <script>
+                    	 function saveData(){
+
+      
+
+      var concern = $('#theDate').val();
+      var concern = $('#eproblem') .val();
+      var concern = $('#bproblem') .val();
+      var concern = $('#receiver') .val();
+      var concern = $('#email').val();  
+      var concern = $('#ticket').val(); 
+
+          $.ajax({
+            type: "POST",
+            url : " {{ route('view.store') }}",
+            data: $('#concern').serialize(),
+            success:function(e){
+              toastr.success('Post Created Successfully.', 'Success Alert', {timeOut: 5000});
+
+                    </script>
+                </br>
+                </div>
+                
+              </center>
+            </td>
+          </tr>
+          </tbody></table>
+          </center>
+          </div>
+          </div>
+          </center>
+        </td>
+      </tr>
+      </tbody></table>
+      </center>
+      </div>
+    </td>
+  </tr>
+  </tbody></table>
+  </center>
+</body>
+</html>                  
 
 </body>
 

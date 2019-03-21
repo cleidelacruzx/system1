@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('content') <!-- dont forget to put endsection -->
+@section('content')
 <br>
-<div class="row mt-2" id="example2" >
+<div class="row mt-2" id="example2" style="display:none">
 	<div class="col-xl-12 mb-5 mb-xl-0">
 	<!-- Button trigger modal -->
 	
@@ -10,103 +10,162 @@
 		  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalCenterTitle">Admin</h5>
+		        <h5 class="modal-title" id="exampleModalCenterTitle">Client</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		       <form id="addstudent">
+		      		       <form id="addadmin">
                 {{ csrf_field() }}
                 <div class="row">
-                  <label>Admin</label>
-                  <input type="text" id="User" name="User" class="form-control" required>
+                  <div class="col-md-4">
+                <label>Email</label>
+                    <input type="text" id="email" name="email" class="form-control" required>
+                  </div>
+              <div class="col-md-4">
+                    <label>Encountered Problem</label>
+                    <input type="text" id="eproblem" name="eproblem" class="form-control" required>
+                  </div>
+              <div class="col-md-4">
+                    <label>Before Problem</label>
+                    <input type="text" id="bproblem" name="bproblem" class="form-control" required>
+                  </div>
                 </div>
                 <div class="row">
-                  <label>User firstname</label>
-                  <input type="text" id="Fist_name" name="" class="form-control" required>
-                </div>
-                 <div class="row">
-                  <label>User middlename</label>
-                  <input type="text" id="Middle_name" name="form-control" class="form-control" required>
-                </div>
-                  <div class="row">
-                  <label>User lastname</label>
-                  <textarea type="text" id="Last_name" class="form-control" id="categories" name="categories"></textarea>
+                  <label>receiver</label>
+                  <input type="text" id="receiver" name="receiver" class="form-control" required>
                 </div>
                  <div class="row">
                   <label>Ticket</label>
-                  <textarea type="text" id="Ticket" class="form-control" id="Concern" name="Concern"></textarea>
+                  <input type="text" id="ticket" name="ticket" class="form-control" required>
                 </div>
-                  <div class="row">
-                  <label>Status</label>
-                  <textarea type="text" id="Status" class="form-control" id="Concern" name="Concern"></textarea>
+                 <div class="row">
+                  <label>Date</label>
+                  <textarea type="text" id="theDate" name="theDate" class="form-control" id="Concern" name="Concern"></textarea>
                 </div>
           </div>
-		      <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-end">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">
-        <i class="fa fa-angle-left"></i>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">
-        <i class="fa fa-angle-right"></i>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-primary">Save</button>
+		      </div>
 		      		</form>
 		    </div>
 		  </div>
 		</div>
 
+
+		<br>
+		<br>
 		<table id="example" class="table">
 		  <thead>
 		    <tr>
 		      <th>#</th>
-		      <th>Admin ID</th>
-		      <th>User Firstname</th>
-		      <th>User Middlename</th>
-		      <th>User Lastname</th>
+		      <th>Email</th>
+		      <th>Encountered Problem</th>
+		      <th>Before Problem</th>
+		      <th>receiver</th>
 		      <th>Ticket</th>
-		      <th>Status</th>
-		      </tr>
+		      <th>Date</th>
+		      <th>Action</th>
+		    </tr>
 		  </thead>
 		  <tbody>
-		  	@foreach ($admin as $admin)
+		  	@foreach($admin as $admin)
 		    <tr>
 		      <td>{{ $admin->id }}</td>
-		      <td>{{ $admin->User }}</td>
-		      <td>{{ $admin->First_name }}</td>
-		      <td>{{ $admin->Middle_name }}</td>
-		      <td>{{ $admin->Last_name }}</td>
-		      <td>{{ $admin->Ticket }}</td>
-		      <td>{{ $admin->Status }}</td>
-		     
-		      <td><a button type="button"  class="btn btn-danger" a href = "delete/{{ $admin->id }}">Delete</button></a></td>	
-		  	<td>
-
-		  		
-        </form>
-      </div>
-		  	</td>
+		      <td>{{ $admin->email }}</td>
+		      <td>{{ $admin->eproblem }}</td>
+		      <td>{{ $admin->bproblem }}</td>
+		      <td>{{ $admin->receiver }}</td>
+		      <td>{{ $admin->ticket }}</td>
+		        <td>{{ $admin->theDate }}</td>
+		      <td>
+		      		<a href="#" class="btn btn-success editbtn">EDIT</a>
+		      		<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteStudent{{ $student->id }}">DELETE</a>
+		      </td>
 		    </tr>
 
-
-		 
+		    	<!--modal -->
+	            <div class="modal fade" id="deleteStudent{{ $student->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+	                <div class="modal-dialog modal-dialog-centered" role="document">
+	                    <div class="modal-content">
+		                <div class="modal-header">
+		                    <h5 class="modal-title">Please Confirm!</h5>
+		                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                      <span aria-hidden="true">×</span>
+		                    </button>
+		                </div>
+		                 <form method="POST" action="{{ route('students.destroy',$student->id) }}">
+		                 	<div class="modal-body">
+		                    {{ csrf_field() }}
+		                    {{ method_field('DELETE') }}  
+		                    <h5>Would you like to Delete this record?</h5>
+		                 	</div>
+		                    <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						        <button type="submit" class="btn btn-primary">Save changes</button>
+		                    </div>
+	                    </form>
+	                  </div>
+	                    </div>
+	                </div>
+	            </div>
+	          <!-- Modal -->
 
 		    @endforeach
 		  </tbody>
 		</table>
 </div>	
-@endsection <!-- dont forget to put endsection -->
+
+		<div class="modal fade" id="editstudentmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			    <div class="modal-content">
+				    <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				    	</button>
+				    </div>
+			      	<form id="editstudent">
+			      	<div class="modal-body">
+				        	{{ csrf_field() }}
+				        	{{ method_field('PUT') }}
+				        	<input type="hidden" name="id" id="id">
+				        	<div class="row">
+				        		<div class="col-md-4">
+									<label>First Name</label>
+				        			<input type="text" name="first_name" id="first_name" class="form-control" required>
+				        		</div>
+								<div class="col-md-4">
+				        			<label>Middle Name</label>
+				        			<input type="text" name="middle_name" id="middle_name" class="form-control" required>
+				        		</div>
+								<div class="col-md-4">
+				        			<label>Last Name</label>
+				        			<input type="text" name="last_name" id="last_name" class="form-control" required>
+				        		</div>
+				        	</div>
+				        	<div class="row">
+				        		<label>Ticket</label>
+				        		<input type="text" name="course" id="course" class="form-control" required>
+				        	</div>
+				        	<div class="row">
+				        		<label>Priority</label>
+				        		<input type="text" name="section" id="section" class="form-control" required>
+				        	</div>
+			      	</div>
+				    <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-primary">Save changes</button>
+				    </div>
+			      	</form>
+			    </div>
+		  	</div>
+		</div>
+
+</div>	
+@endsection
 @section('scripts')
 	<script>
 		$(document).ready(function(){
@@ -114,15 +173,15 @@
 			
 			
 			// ADD
-		    $('#addstudent').on('submit', function(event) {
+		    $('#addadmin').on('submit', function(event) {
 		       event.preventDefault(); 
 		       $.ajax({
 		           type: "POST",
 		           url:  "{{ route('admin.store') }}",
-		           data: $('#addstudent').serialize(),
+		           data: $('#concern').serialize(),
 		           success: function( response ) {
 		           	    if( response == "record exist"){
-				          toastr.error('Client Record Already Exist', 'Failed!', {timeOut: 5000, closeButton: true});
+				          toastr.error('Patient Record Already Exist', 'Failed!', {timeOut: 5000, closeButton: true});
 				        }else{
 						toastr.success('Post Created Successfully.', 'Success Alert', {timeOut: 5000});
 						}
@@ -136,6 +195,51 @@
 		    });
 		   // ADD
 
+		   // SHOW
+		    $('.editbtn').on('click', function() {
+		   		$('#editstudentmodal').modal('show');
+
+		   		$tr = $(this).closest('tr');
+
+		   		var data = $tr.children("td").map(function(){
+		   			return $(this).text();
+		   		}).get();
+
+		   		console.log(data);
+
+		   		$('#id').val(data[0]);	
+		   		$('#first_name').val(data[1]);
+		   		$('#middle_name').val(data[2]);
+		   		$('#last_name').val(data[3]);
+		   		$('#course').val(data[4]);
+		   		$('#section').val(data[5]);
+
+		    });
+		   // SHOW
+
+		   // UPDATE
+		    $('#editstudentmodal').on('submit', function(event) {
+		       event.preventDefault(); 
+
+		       var id = $('#id').val();
+		       $.ajax({
+		           type: "PUT",
+		           url:  "/students/" + id,
+		           data: $('#editstudent').serialize(),
+		           success: function( response ) {
+		           		console.log(response);
+						$('#editstudentmodal').modal('hide');
+						toastr.success('Student Successfully Updated.', 'Success Alert', {timeOut: 5000});
+						// location.reload();
+		           },
+		           error: function(error){
+		 				console.log(error)
+		 			}
+		       });
+		    });
+		    // UPDATE
+
+		});
 		
 		   
 

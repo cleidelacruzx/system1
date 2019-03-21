@@ -324,7 +324,7 @@ label {
 <button class="collapsible">Other Concern</button>
 <div class="content">
   <form>
-<a type="button" href="{{route('register')}}">Click this to make a Concern</a>
+<a type="button" href="{{route('view.index')}}">Click this to make a Concern</a>
 </form>
 </div>
 

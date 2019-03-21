@@ -42,17 +42,16 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-          $admin = new Admin ();
+         $admin = new Admin();
 
-      $admin->Admin = $request->input('User');
-      $admin->UserFirstname = $request->input('First_name');
-      $admin->UserMiddlename = $request->input('Middle_name');
-      $admin->UserLastname = $request->input('Last_name');
-      $admin->Ticket = $request->input('Ticket');
-      $admin->Status = $request->input('Status');
-      
+      $admin->theDate= $request->input('theDate');
+      $admin->eproblem = $request->input('eproblem');
+      $admin->bproblem = $request->input('bproblem');
+      $admin->receiver = $request->input('receiver');
+      $admin->email = $request->input('email');  
+      $admin->ticket = $request->input('ticket');   
 
-      $admin->save();
+         $admin->save();
       return $admin;
     }
 

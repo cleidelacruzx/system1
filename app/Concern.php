@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Admin extends Model
+class Concern extends Model
 {
     // 
 
@@ -13,7 +13,7 @@ class Admin extends Model
      *
      * @var array
      */
-   protected $table='admin';
+    protected $table='concern';
 
     protected $fillable = [
         'theDate','eproblem','bproblem','receiver','email','ticket'

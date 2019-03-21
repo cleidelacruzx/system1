@@ -15,11 +15,9 @@ class ViewController extends Controller
      */
        public function index()
     {
-     
-  		$client = DB::select('select * from client where ticketnumber = ?', [1]);
+            
 
-        return view('view.index', ['view' => $client]);
-        
+        return view('view.index');
     }
 
     /**
