@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('content')
+@section('content') <!-- dont forget to put endsection -->
 <br>
-<div class="row mt-2" id="example2" style="display:none">
+<div class="row mt-2" id="example2" >
 	<div class="col-xl-12 mb-5 mb-xl-0">
 	<!-- Button trigger modal -->
 	
@@ -16,47 +16,67 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		      		       <form id="addadmin">
+		      		       <form id="addstudent">
                 {{ csrf_field() }}
                 <div class="row">
-                  <div class="col-md-4">
-                <label>Email</label>
-                    <input type="text" id="email" name="email" class="form-control" required>
+                  <div class="col-md-1">
+                <label>First Name</label>
+                    <input type="text" id="first_name" name="Fname" class="form-control" required>
                   </div>
-              <div class="col-md-4">
-                    <label>Encountered Problem</label>
-                    <input type="text" id="eproblem" name="eproblem" class="form-control" required>
+              <div class="col-md-1">
+                    <label>Middle Name</label>
+                    <input type="text" id="middle_name" name="Mname" class="form-control" required>
                   </div>
-              <div class="col-md-4">
-                    <label>Before Problem</label>
-                    <input type="text" id="bproblem" name="bproblem" class="form-control" required>
+              <div class="col-md-1">
+                    <label>Last Name</label>
+                    <input type="text" id="last_name" name="Lname" class="form-control" required>
                   </div>
                 </div>
                 <div class="row">
-                  <label>receiver</label>
-                  <input type="text" id="receiver" name="receiver" class="form-control" required>
+                  <label>Facility</label>
+                  <input type="text" id="facility" name="Facility" class="form-control" required>
+                </div>
+                <div class="row">
+                  <label>Designation</label>
+                  <input type="text" id="designation" name="Designation" class="form-control" required>
                 </div>
                  <div class="row">
-                  <label>Ticket</label>
-                  <input type="text" id="ticket" name="ticket" class="form-control" required>
+                  <label>Contact</label>
+                  <input type="text" id="contact" name="Contact" class="form-control" required>
+                </div>
+                  <div class="row">
+                  <label>Categories</label>
+                  <textarea type="text" id="categories" class="form-control" id="categories" name="categories"></textarea>
                 </div>
                  <div class="row">
-                  <label>Date</label>
-                  <textarea type="text" id="theDate" name="theDate" class="form-control" id="Concern" name="Concern"></textarea>
+                  <label>Concern</label>
+                  <textarea type="text" id="concern" class="form-control" id="Concern" name="Concern"></textarea>
                 </div>
           </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		        <button type="submit" class="btn btn-primary">Save</button>
-		      </div>
+		      <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-end">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">
+        <i class="fa fa-angle-left"></i>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">
+        <i class="fa fa-angle-right"></i>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 		      		</form>
 		    </div>
 		  </div>
 		</div>
 
-
-		<br>
-		<br>
 		<table id="example" class="table">
 		  <thead>
 		    <tr>
@@ -64,108 +84,66 @@
 		      <th>Email</th>
 		      <th>Encountered Problem</th>
 		      <th>Before Problem</th>
-		      <th>receiver</th>
-		      <th>Ticket</th>
+		      <th>Receiver</th>
 		      <th>Date</th>
+		      <th>Tickets</th>
 		      <th>Action</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		  	@foreach($admin as $admin)
+		  	@foreach ($admins as $admin)
 		    <tr>
 		      <td>{{ $admin->id }}</td>
 		      <td>{{ $admin->email }}</td>
 		      <td>{{ $admin->eproblem }}</td>
 		      <td>{{ $admin->bproblem }}</td>
-		      <td>{{ $admin->receiver }}</td>
-		      <td>{{ $admin->ticket }}</td>
-		        <td>{{ $admin->theDate }}</td>
-		      <td>
-		      		<a href="#" class="btn btn-success editbtn">EDIT</a>
-		      		<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteStudent{{ $student->id }}">DELETE</a>
-		      </td>
+		      <td>{{ $admin->receiver}}</td>
+		      <td>{{ $admin->theDate }}</td>
+		       <td>{{$admin->ticket}}</td>
+		      <td><a button type="button"  class="btn btn-danger" a href = "delete/{{ $client->id }}">Delete</button></a></td>	
+		  	<td>
+
+		  		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open</button>
+		  		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Status </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+          	
+            <label for="recipient-name" class="col-form-label">User ID:</label>
+            <input type="text" id="User" value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}" class="form-control" placeholder="Input Your ID" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" >Status</label><br>
+              
+        </div>
+        <select id="Status">
+        	<option>Process Status</option>
+        	<option>Success/Done</option>
+        	<option>On Hold</option>
+        	<option>Rejected/Failed</option>
+        </select><br>
+                        <button type="button" id="save" class="btn btn-primary" >ENTER</button>
+        </form>
+      </div>
+		  	</td>
 		    </tr>
 
-		    	<!--modal -->
-	            <div class="modal fade" id="deleteStudent{{ $student->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-	                <div class="modal-dialog modal-dialog-centered" role="document">
-	                    <div class="modal-content">
-		                <div class="modal-header">
-		                    <h5 class="modal-title">Please Confirm!</h5>
-		                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		                      <span aria-hidden="true">×</span>
-		                    </button>
-		                </div>
-		                 <form method="POST" action="{{ route('students.destroy',$student->id) }}">
-		                 	<div class="modal-body">
-		                    {{ csrf_field() }}
-		                    {{ method_field('DELETE') }}  
-		                    <h5>Would you like to Delete this record?</h5>
-		                 	</div>
-		                    <div class="modal-footer">
-						        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						        <button type="submit" class="btn btn-primary">Save changes</button>
-		                    </div>
-	                    </form>
-	                  </div>
-	                    </div>
-	                </div>
-	            </div>
-	          <!-- Modal -->
+
+		 
 
 		    @endforeach
 		  </tbody>
 		</table>
 </div>	
-
-		<div class="modal fade" id="editstudentmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		  	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-			    <div class="modal-content">
-				    <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
-				    	</button>
-				    </div>
-			      	<form id="editstudent">
-			      	<div class="modal-body">
-				        	{{ csrf_field() }}
-				        	{{ method_field('PUT') }}
-				        	<input type="hidden" name="id" id="id">
-				        	<div class="row">
-				        		<div class="col-md-4">
-									<label>First Name</label>
-				        			<input type="text" name="first_name" id="first_name" class="form-control" required>
-				        		</div>
-								<div class="col-md-4">
-				        			<label>Middle Name</label>
-				        			<input type="text" name="middle_name" id="middle_name" class="form-control" required>
-				        		</div>
-								<div class="col-md-4">
-				        			<label>Last Name</label>
-				        			<input type="text" name="last_name" id="last_name" class="form-control" required>
-				        		</div>
-				        	</div>
-				        	<div class="row">
-				        		<label>Ticket</label>
-				        		<input type="text" name="course" id="course" class="form-control" required>
-				        	</div>
-				        	<div class="row">
-				        		<label>Priority</label>
-				        		<input type="text" name="section" id="section" class="form-control" required>
-				        	</div>
-			      	</div>
-				    <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				        <button type="submit" class="btn btn-primary">Save changes</button>
-				    </div>
-			      	</form>
-			    </div>
-		  	</div>
-		</div>
-
-</div>	
-@endsection
+@endsection <!-- dont forget to put endsection -->
 @section('scripts')
 	<script>
 		$(document).ready(function(){
@@ -173,12 +151,12 @@
 			
 			
 			// ADD
-		    $('#addadmin').on('submit', function(event) {
+		    $('#addstudent').on('submit', function(event) {
 		       event.preventDefault(); 
 		       $.ajax({
 		           type: "POST",
-		           url:  "{{ route('admin.store') }}",
-		           data: $('#concern').serialize(),
+		           url:  "{{ route('students.store') }}",
+		           data: $('#addstudent').serialize(),
 		           success: function( response ) {
 		           	    if( response == "record exist"){
 				          toastr.error('Patient Record Already Exist', 'Failed!', {timeOut: 5000, closeButton: true});
@@ -211,8 +189,11 @@
 		   		$('#first_name').val(data[1]);
 		   		$('#middle_name').val(data[2]);
 		   		$('#last_name').val(data[3]);
-		   		$('#course').val(data[4]);
-		   		$('#section').val(data[5]);
+		   		$('#facility').val(data[4]);
+		   		$('#designation').val(data[5]);
+		   		$('#contact').val(data[6]);
+		   		$('#concern').val(data[7]);
+		   		$('#ticketnumber').val(data[7]);
 
 		    });
 		   // SHOW
@@ -238,6 +219,17 @@
 		       });
 		    });
 		    // UPDATE
+		     function deleteData(id){
+        $.ajax({
+          type: "DELETE",
+          url: '/client/' + id,
+          success: function(){
+            toastr.warning('Record Successfully Deleted.', 'Success Alert', {timeOut: 5000});
+            location.reload();
+          }
+        })
+      }
+
 
 		});
 		

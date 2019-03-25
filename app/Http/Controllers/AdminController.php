@@ -18,7 +18,7 @@ class AdminController extends Controller
           $data1 = Admin::all();
 
         return view('admin.index')->with([
-            'admin' => $data1 
+            'admins' => $data1 
         ]);
 
       
@@ -51,7 +51,7 @@ class AdminController extends Controller
       $admin->email = $request->input('email');  
       $admin->ticket = $request->input('ticket');   
 
-         $admin->save();
+      $admin->save();
       return $admin;
     }
 

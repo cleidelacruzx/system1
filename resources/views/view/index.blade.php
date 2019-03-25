@@ -285,7 +285,7 @@ div.loginbox{
                         document.getElementById('theDate').value = today;
                       </script>
                     <i class="fa fa-puzzle-piece icon"></i><input type="text" id="eproblem" name="eproblem" placeholder="Enter Problem" required=""><br>
-                    <i class="fa fa-puzzle-piece icon"></i><input type="text" id="bproblem" name=bproblem" placeholder="Before the problem" required=""><br>
+                    <i class="fa fa-puzzle-piece icon"></i><input type="text" id="bproblem" name="bproblem" placeholder="Before the problem" required=""><br>
                     
                     <div>
                         <div class="col-80">
@@ -299,7 +299,7 @@ div.loginbox{
                     <i class="fa fa-envelope icon"></i><input type="text" id="email" name="email" placeholder="Email Address" required=""><br>
                     <table class="ticketnumber">
                       <tr>
-                        <th id="ticket" class="ticket">Ticket Number:</th>
+                        <th id="ticket" name="ticket" class="ticket">Ticket Number:</th>
                         <th id="demo" class="number"></th>
                       </tr>
                     <script>
